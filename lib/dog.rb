@@ -108,9 +108,9 @@ class Dog
 
     row = DB[:conn].execute(sql, dog.name, dog.breed)[0]
     # binding.pry
-    if !row.empty?
-      new_dog = self.new_from_db(row)
-      self.find_by_id(new_dog.id)
+    if !!row
+      self.new_from_db(row)
+      # self.find_by_id(new_dog.id)
     else
       self.create(hash)
     end
