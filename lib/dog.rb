@@ -87,4 +87,9 @@ class Dog
     self.new_from_db(row)
   end
 
+  def self.find_or_create_by(hash)
+    dog = self.new(hash)
+    self.find_by_id(dog.id) || self.create(hash)
+  end
+
 end
