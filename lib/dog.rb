@@ -84,7 +84,7 @@ class Dog
 
     row = DB[:conn].execute(sql, id)[0]
 
-    self.new_from_db(row) unless row == nil
+    self.new_from_db(row)
   end
 
   def self.find_by_name(name)
@@ -98,28 +98,29 @@ class Dog
     self.new_from_db(row)
   end
 
-  def self.find_by_breed(breed)
-    sql = <<-SQL
-      SELECT * FROM dogs
-      WHERE breed = ?
-    SQL
-
-    row = DB[:conn].execute(sql, breed)[0]
-
-    self.new_from_db(row)
-  end
-
-  def ==(other_dog)
-    self.id == other_dog
-  end
+  # def self.find_by_breed(breed)
+  #   sql = <<-SQL
+  #     SELECT * FROM dogs
+  #     WHERE breed = ?
+  #   SQL
+  # 
+  #   row = DB[:conn].execute(sql, breed)[0]
+  # 
+  #   self.new_from_db(row)
+  # end
+  # 
+  # def ==(other_dog)
+  #   self.id == other_dog
+  # end
 
   def self.find_or_create_by(hash)
     dog = self.new(hash)
-    # binding.pry
+    
     if !!dog.id
       find_by_id(dog.id)
     else
       self.create(hash)
+      binding.pry
     end
   end
 
