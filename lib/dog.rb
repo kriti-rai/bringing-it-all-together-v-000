@@ -84,7 +84,7 @@ class Dog
 
     row = DB[:conn].execute(sql, id)[0]
 
-    self.new_from_db(row)
+    self.new_from_db(row) unless row == nil
   end
 
   def self.find_by_name(name)
