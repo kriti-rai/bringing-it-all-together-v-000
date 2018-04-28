@@ -39,7 +39,7 @@ class Dog
   end
 
   def insert
-    sql =<<-SQL
+    sql = <<-SQL
       INSERT INTO dogs (name, breed)
       VALUES (?,?)
       )
@@ -50,7 +50,7 @@ class Dog
   end
 
   def update
-    sql =<<-SQL
+    sql = <<-SQL
       UPDATE dogs
       SET id = ?, name = ?, breed = ? WHERE id = ?
       SQL
