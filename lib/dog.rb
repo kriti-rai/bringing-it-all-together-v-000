@@ -107,7 +107,7 @@ class Dog
     SQL
 
     row = DB[:conn].execute(sql, dog.name, dog.breed)[0]
-    binding.pry
+    # binding.pry
     if !row.empty?
       self.find_by_id(dog.id)
     else
