@@ -1,3 +1,4 @@
+require 'pry'
 class Dog
   attr_accessor :id, :name, :breed
   # ATTRIBUTES = {
@@ -63,6 +64,7 @@ class Dog
       self.update
     else
       self.insert
+      binding.pry
     end
   end
 
