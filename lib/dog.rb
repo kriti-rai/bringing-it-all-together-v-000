@@ -103,19 +103,19 @@ class Dog
   #     SELECT * FROM dogs
   #     WHERE breed = ?
   #   SQL
-  # 
+  #
   #   row = DB[:conn].execute(sql, breed)[0]
-  # 
+  #
   #   self.new_from_db(row)
   # end
-  # 
+  #
   # def ==(other_dog)
   #   self.id == other_dog
   # end
 
   def self.find_or_create_by(hash)
     dog = self.new(hash)
-    
+
     if !!dog.id
       find_by_id(dog.id)
     else
