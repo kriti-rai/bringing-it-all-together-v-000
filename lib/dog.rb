@@ -71,6 +71,11 @@ class Dog
     end
   end
 
+  def self.create(hash)
+    self.new(hash)
+    self.save
+    self
+  end
 
 
 
