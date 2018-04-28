@@ -113,11 +113,9 @@ class Dog
     self.id == other_dog
   end
 
-  end
-
-  def self.find_or_create_by(name:, breed:)
-    dog1= find_by_name(name)
-    dog2 = find_by_breed(breed)
+  def self.find_or_create_by(hash)
+    dog1= find_by_name(name:)
+    dog2 = find_by_breed(breed:)
     if dog1 == dog2
       find_by_id(dog1.id)
     else
