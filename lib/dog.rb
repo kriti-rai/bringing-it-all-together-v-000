@@ -1,20 +1,20 @@
 class Dog
-
-  ATTRIBUTES = {
-    :id => "INTEGER PRIMARY KEY",
-    :name => "TEXT",
-    :breed => "TEXT"
-  }
-  ATTRIBUTES.keys.each do |key|
-    attr_accessor key
-  end
+  attr_accessor :id, :name, :breed
+  # ATTRIBUTES = {
+  #   :id => "INTEGER PRIMARY KEY",
+  #   :name => "TEXT",
+  #   :breed => "TEXT"
+  # }
+  # ATTRIBUTES.keys.each do |key|
+  #   attr_accessor key
+  # end
 
   def initialize(hash)
     hash.each {|k,v| self.send("#{k}=", v)}
   end
 
   def self.create_table
-    sql =<<-SQL
+    sql = <<-SQL
       CREATE TABLE IF NOT EXISTS dogs (
         id INTEGER PRIMARY KEY,
         name TEXT,
