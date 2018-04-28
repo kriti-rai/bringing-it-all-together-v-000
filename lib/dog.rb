@@ -89,7 +89,19 @@ class Dog
 
   def self.find_or_create_by(hash)
     dog = self.new(hash)
-    self.find_by_id(dog.id) || self.create(hash)
+
+    sql = <<-SQL
+      SELECT id FROM dogs
+      WHERE name = ?, breed = ?
+    SQL
+
+    row = DB[:conn].execute(sql, dog.name, dog.breed)[0][0]
+
+    if !!row
+      self.find_by_id(dog.id)
+    else
+      self.create(hash)
+    end
   end
 
 end
