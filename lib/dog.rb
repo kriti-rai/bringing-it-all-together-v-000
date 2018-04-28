@@ -115,6 +115,7 @@ class Dog
 
   def self.find_or_create_by(hash)
     dog = self.new(hash)
+    binding.pry
     if !!dog.id
       find_by_id(dog.id)
     else
