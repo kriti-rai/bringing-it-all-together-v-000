@@ -90,12 +90,12 @@ class Dog
   def self.find_or_create_by(hash)
     dog = self.new(hash)
 
-    sql = <<-SQL
-      SELECT id FROM dogs
-      WHERE name = ?, breed = ?
-    SQL
-
-    row = DB[:conn].execute(sql, dog.name, dog.breed)
+    # sql = <<-SQL
+    #   SELECT id FROM dogs
+    #   WHERE name = ?, breed = ?
+    # SQL
+    # 
+    # row = DB[:conn].execute(sql, dog.name, dog.breed)
     binding.pry
 
     if !!row
