@@ -54,7 +54,7 @@ class Dog
       UPDATE dogs
       SET id = ?, name = ?, breed = ? WHERE id = ?
       SQL
-      DB[:conn].execute(sql.self.id, self.name,self.breed)
+      DB[:conn].execute(sql, self.id, self.name, self.breed)
   end
 
   def save
