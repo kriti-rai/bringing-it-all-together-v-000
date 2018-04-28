@@ -72,8 +72,7 @@ class Dog
   end
 
   def self.create(hash)
-    dog = self.new(hash)
-    dog.save
+    self.new(hash).save
   end
 
   def self.find_by_id(id)
@@ -120,9 +119,7 @@ class Dog
       find_by_id(dog.id)
     else
       self.create(hash)
-      # binding.pry
     end
-    # binding.pry
   end
 
 end
