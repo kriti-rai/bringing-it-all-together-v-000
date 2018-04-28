@@ -1,14 +1,5 @@
-require 'pry'
 class Dog
   attr_accessor :id, :name, :breed
-  # ATTRIBUTES = {
-  #   :id => "INTEGER PRIMARY KEY",
-  #   :name => "TEXT",
-  #   :breed => "TEXT"
-  # }
-  # ATTRIBUTES.keys.each do |key|
-  #   attr_accessor key
-  # end
 
   def initialize(hash)
     hash.each {|k,v| self.send("#{k}=", v)}
@@ -107,6 +98,7 @@ class Dog
     SQL
 
     row = DB[:conn].execute(sql, dog.name, dog.breed)[0]
+
     if !!row
       self.new_from_db(row)
     else
