@@ -64,7 +64,6 @@ class Dog
       self.update
     else
       self.insert
-      binding.pry
     end
     self
   end
