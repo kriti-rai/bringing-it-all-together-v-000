@@ -66,6 +66,7 @@ class Dog
       self.insert
       binding.pry
     end
+    self
   end
 
 
