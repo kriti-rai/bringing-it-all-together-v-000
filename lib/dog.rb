@@ -114,8 +114,9 @@ class Dog
   end
 
   def self.find_or_create_by(hash)
-    if !!self.id
-      find_by_id(self.id)
+    dog = self.new(hash)
+    if !!dog.id
+      find_by_id(dog.id)
     else
       self.create(hash)
     end
