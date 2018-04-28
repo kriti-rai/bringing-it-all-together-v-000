@@ -56,6 +56,7 @@ class Dog
     else
       self.insert
     end
+    
     self
   end
 
