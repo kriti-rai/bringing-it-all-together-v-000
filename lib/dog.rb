@@ -96,7 +96,7 @@ class Dog
     # SQL
     #
     # row = DB[:conn].execute(sql, dog.name, dog.breed)
-    binding.pry
+    # binding.pry
 
     if !!row
       self.find_by_id(dog.id)
