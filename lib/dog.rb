@@ -120,8 +120,9 @@ class Dog
       find_by_id(dog.id)
     else
       self.create(hash)
-      binding.pry
+      # binding.pry
     end
+    # binding.pry
   end
 
 end
